@@ -6,10 +6,12 @@
     font-style: normal;
 }
 /* 초기화 */
-body, ul, li, h1, h2, h3, h4, dl, dt, dd, img, fieldset, form, input { margin: 0; padding: 0;}
+body, ul, li, h1, h2, h3, h4, dl, dt, dd, img, fieldset, form, input, p, address, small { margin: 0; padding: 0;}
 body { min-width: 1000px; min-height: 650px;}
 a { text-decoration: none; }
 li { list-style: none; }
+address { font-style: normal; }
+small { font-size: 1em; }
 hr { display: none;}
 .hidden { position: absolute; left: -99999px; }
 /* ----헤더---- */
@@ -46,11 +48,11 @@ hr { display: none;}
 #gnb-right .snb li { margin-top: 2px;}
 #gnb-right .snb li:last-child { padding-bottom: 5px;}
 
-/* 헤더 슬라이더 */
-#slider { width: 100%; height: 100vh; position: relative; background: #000;}
+/* 슬라이더 */
+#slider { width: 100%; height: 100vh; position: relative; overflow: hidden; }
 #slider ul { width: 900%; height: 100vh;}
 #slider ul li { float: left; width: 11.1111%; position: relative;}
-#slider ul li video { width: 100%; height: 100%;  }
+#slider ul li video { width: 100%; height: 100%; }
 #slider ul li::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5)  }
 /* 슬라이더 prev next 버튼 */
 #button1 a { position: absolute; top: 50vh; display: block;
@@ -101,8 +103,9 @@ hr { display: none;}
                 background: url(../images/next.png) no-repeat center / cover}
 /* 섹션2- 이벤트 */
 #section2 { width: 100%; height: 100vh; background: #F7F0DA; position: relative;}
-#section2 h2 { padding: 70px 0; text-align: center;
+#section2 h2 { padding: 70px 0 10px; text-align: center;
               font-size: 40px; font-family: 'SpoqaHanSansNeo-Regular'; }
+#section2 p { font-size: 20px; text-align: center; color: #333; font-family: 'SpoqaHanSansNeo-Regular'; }
 #event { width: 200%; margin-top: 50px; }
 #event ul li {  text-indent: -9999px; }
 #event ul li a { display: block;  width: 12.5%; height: 50vh; float: left;
@@ -124,43 +127,52 @@ hr { display: none;}
                 background: url(../images/next.png) no-repeat center / cover}
 /* 배너*/
 #banner { width: 100%; height: 30vh; background: url(../images/bg-banner.jpg) no-repeat center 30% / cover; position: relative;
-          text-align: center; overflow: hidden; }
-          /* background-attachment: fixed, scroll; */
-
+          text-align: center; overflow: hidden;
+          background-attachment: fixed, scroll; }
 #banner::before { content: ""; position: absolute; top:0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.12)}
 #banner h2 { position: relative; padding-top: 3%; font-size: 43px; letter-spacing: 4px;
             font-family: 'SpoqaHanSansNeo-Regular'; color: #000;  }
-#banner p { position: relative; font-size: 18px; color: #000;}
+#banner p { position: relative; font-size: 18px; color: #000; font-family: 'SpoqaHanSansNeo-Regular';}
 #banner a { display: block; width: 100px; padding: 5px 25px; margin: 0 auto; position: relative;
-           color: #000; background: #e9f4d6;}
+           color: #000; background: #e9f4d6; font-family: 'SpoqaHanSansNeo-Regular';}
 #banner a:hover { background: #F26A25; color: #eee; }
 /* 섹션3-안내 */
 #section3 { width: 100%; height: 100vh; padding-top: 100px; background: #F7F0DA;
-            box-sizing: border-box; overflow: hidden; }
-#listWrap { width: 70%; height: 60vh; margin: 0 auto;}
-#listWrap div { width: 50%; height: 50%; }
-#listWrap div h3 { }
-#listWrap div p {  }
-#listWrap div a {  }
-#listWrap .left { float: left; background: skyblue;}
-#listWrap .right { float: right; background: orange; }
+            box-sizing: border-box; overflow: hidden;}
+#listWrap { width: 70%; height: 60vh; margin: 0 auto;  position: relative; }
+#listWrap::after { content: ""; position: absolute; top: 0; left: 0;
+                      width: 100%; height: 100%; background: rgb(0, 0, 0, 0.4)}
+#listWrap > div { width: 50%; height: 50%; text-align: center; }
+#listWrap div h3, #listWrap div p, #listWrap > div > a { position: relative; z-index: 10; color: #eee; font-family: 'SpoqaHanSansNeo-Regular';}
+#listWrap div h3 { padding: 30px 0 0;  font-size: 22px; letter-spacing: 5px; }
+#listWrap .founding a, #listWrap .engineer a { color: #333; background: #eee; padding: 4px 20px;}
+#listWrap .founding a:hover, #listWrap .engineer a:hover { color: #eee; background:  #F26A25; }
+#listWrap .left { float: left; }
+#listWrap .right { float: right; }
 /* 창업 */
 #listWrap .founding { background: url(../images/tj-founding.jpg) no-repeat center / cover; }
 /* 기사 */
 #listWrap .engineer { background: url(../images/tj-engineer.jpg) no-repeat center / cover; }
 /* 매장찾기 */
 #listWrap .search { background: url(../images/tj-search.png) no-repeat center / cover; }
-#fieldSet { border: none; }
-#fieldSet legend { display: none;}
-#fieldSet input { width: 0; height: 32px; float: left; border: none; font-size: 12px; padding-left: 2px;}
-#fieldSet .search { float: left; display: block; width: 32px; height: 32px; background: url(images/btn_search1.png) no-repeat center / cover}
-#fieldSet .close { float: left; display: block; width: 11px; height: 11px; margin: 10px 0 0 8px;
-            background: url(images/common.png) -533px -253px no-repeat;
-            text-indent: -9999px;  }
+  /* #fieldSet { border: none; }
+  #fieldSet legend { display: none;}
+  #fieldSet input { width: 0; height: 32px; float: left; border: none; font-size: 12px; padding-left: 2px;}
+  #fieldSet .search { float: left; display: block; width: 32px; height: 32px; background: url(images/btn_search1.png) no-repeat center / cover}
+  #fieldSet .close { float: left; display: block; width: 11px; height: 11px; margin: 10px 0 0 8px;
+              background: url(images/common.png) -533px -253px no-repeat;
+              text-indent: -9999px;  } */
 /* 게시판 */
 #listWrap .notice { background: url(../images/tj-notice.jpg) no-repeat center / cover; }
+#listWrap .notice .board { position: relative; z-index: 10; width: 330px; height: 100px;
+                           background: #eee;  margin: 10px auto; }
+#listWrap .notice .board ul { float: left; }
+#listWrap .notice .board ul li { padding: 8px 0 0 8px; }
+#listWrap .notice .board ul li a { color: #333; font-size: 13px; }
+#listWrap .notice .board a.btn-more  { float: right; margin: 30px 5px 0 0; padding: 5px 12px; border: 1px solid #555; color: #333; box-sizing: border-box;}
+#listWrap .notice .board a.btn-more:hover  { border: none; color: #eee; background: #F26A25; }
 /* 색션3- 사이트 안내 */
-#siteWrap { width: 100%; border-top: 1px solid #ccc; margin-top: 10%; }
+#siteWrap { width: 100%; border-top: 1px solid #ccc; margin-top: 5%; }
 #siteWrap ul { width: 70%; margin: 30px auto 0; }
 #siteWrap li { width: 12.500%; float: left; }
 #siteWrap a { display: block; background: url(../images/common.png) left top no-repeat; text-indent: -9999px; margin: 0 auto; }
@@ -177,8 +189,20 @@ hr { display: none;}
 #btn_top a { display: block; width: 42px; height: 42px; text-indent: -9999px;
             background: url(../images/top-btn.png) no-repeat center / cover;}
 /* 푸터 */
-/* #footer { width: 100%; background: #2e2f2e;} */
-#footer { width: 100%; background: #666;}
-#footer-sub {}
-#footer-sub ul {}
-/* #footer-sub ul li {float: left; } */
+#footer { width: 100%; background: #666; overflow: hidden;}
+#footerWrap { width: 80%; margin: 0 auto; font-size: 14px; overflow: hidden;}
+#footer-sub { width: 80%;}
+#footer-sub ul { }
+#footer-sub ul li {float: left; margin-top: 10px; }
+#footer-sub ul li a { margin: 0 10px; color: #ddd; font-weight: bold;}
+#footer-sub ul li a.strong { color: #F26A25; text-decoration: underline; }
+#address { float: left; width: 80%; padding: 10px; text-align: center; color: #ccc; }
+#address span { }
+/* sns */
+#sns { float: right; }
+#sns ul li { float: left; }
+#sns ul li a { display: block; text-indent: -9999px; margin-right: 30px;  background: url(../images/common.png) left top no-repeat;}
+#sns .facebook { width: 9px; height: 19px; background-position: -20px -45px;}
+#sns .twitter { width: 12px; height: 19px; background-position: -39px -45px; }
+#sns .blog { width: 14px; height: 19px; background-position: -61px -45px; }
+#sns .instagram { width: 19px; height: 19px; background-position: -20px -104px;}
