@@ -6,7 +6,7 @@
     font-style: normal;
 }
 /* 초기화 */
-body, ul, li, h1, h2, h3, h4, dl, dt, dd, img, fieldset, form, input, p, address, small { margin: 0; padding: 0;}
+body, ul, li, h1, h2, h3, h4, dl, dt, dd, img, searchForm, form, input, p, address, small { margin: 0; padding: 0;}
 body { min-width: 1000px; min-height: 650px;}
 a { text-decoration: none; }
 li { list-style: none; }
@@ -64,7 +64,7 @@ hr { display: none;}
 #button2 { position: absolute; top: 92%; left: calc(50% - 90px); z-index: 3;}
 #button2 .btn_num li { width: 13px; height: 13px; margin-right: 8px;
                     border: 1px solid #aaa; border-radius: 50%; cursor: pointer; }
-#button2 .btn_num li.on { background: #fff; }
+#button2 .btn_num li a.active { background: #fff; }
 /*---- 메인---- */
 /* 섹션1 - 뚜레주르 추천제품 */
 #section1 { width: 100%; height: 100vh; position: relative; background: #eee; }
@@ -133,46 +133,49 @@ hr { display: none;}
 #banner h2 { position: relative; padding-top: 3%; font-size: 43px; letter-spacing: 4px;
             font-family: 'SpoqaHanSansNeo-Regular'; color: #000;  }
 #banner p { position: relative; font-size: 18px; color: #000; font-family: 'SpoqaHanSansNeo-Regular';}
-#banner a { display: block; width: 100px; padding: 5px 25px; margin: 0 auto; position: relative;
-           color: #000; background: #e9f4d6; font-family: 'SpoqaHanSansNeo-Regular';}
+#banner a { display: block; width: 100px; padding: 5px 25px; margin: 15px auto; position: relative;
+           color: #000; background: rgba(255, 255, 255, 0.8); font-family: 'SpoqaHanSansNeo-Regular';}
 #banner a:hover { background: #F26A25; color: #eee; }
 /* 섹션3-안내 */
-#section3 { width: 100%; height: 100vh; padding-top: 100px; background: #F7F0DA;
+#section3 { width: 100%; height: 100vh; padding-top: 100px; background: #eee;
             box-sizing: border-box; overflow: hidden;}
 #listWrap { width: 70%; height: 60vh; margin: 0 auto;  position: relative; }
 #listWrap::after { content: ""; position: absolute; top: 0; left: 0;
                       width: 100%; height: 100%; background: rgb(0, 0, 0, 0.4)}
-#listWrap > div { width: 50%; height: 50%; text-align: center; }
+#listWrap > div { width: 50%; height: 50%; text-align: center; box-sizing: border-box; }
 #listWrap div h3, #listWrap div p, #listWrap > div > a { position: relative; z-index: 10; color: #eee; font-family: 'SpoqaHanSansNeo-Regular';}
-#listWrap div h3 { padding: 30px 0 0;  font-size: 22px; letter-spacing: 5px; }
-#listWrap .founding a, #listWrap .engineer a { color: #333; background: #eee; padding: 4px 20px;}
+#listWrap div h3 { padding-top: 30px;  font-size: 28px; letter-spacing: 4px; }
+#listWrap .founding p, #listWrap .engineer p, #listWrap .search p { padding: 10px 0 40px; }
+#listWrap .founding a, #listWrap .engineer a { color: #333; background: rgba(255, 255, 255, 0.8); padding: 4px 23px; }
 #listWrap .founding a:hover, #listWrap .engineer a:hover { color: #eee; background:  #F26A25; }
 #listWrap .left { float: left; }
 #listWrap .right { float: right; }
-/* 창업 */
 #listWrap .founding { background: url(../images/tj-founding.jpg) no-repeat center / cover; }
-/* 기사 */
 #listWrap .engineer { background: url(../images/tj-engineer.jpg) no-repeat center / cover; }
 /* 매장찾기 */
 #listWrap .search { background: url(../images/tj-search.png) no-repeat center / cover; }
-  /* #fieldSet { border: none; }
-  #fieldSet legend { display: none;}
-  #fieldSet input { width: 0; height: 32px; float: left; border: none; font-size: 12px; padding-left: 2px;}
-  #fieldSet .search { float: left; display: block; width: 32px; height: 32px; background: url(images/btn_search1.png) no-repeat center / cover}
-  #fieldSet .close { float: left; display: block; width: 11px; height: 11px; margin: 10px 0 0 8px;
-              background: url(images/common.png) -533px -253px no-repeat;
-              text-indent: -9999px;  } */
+#searchForm { border: none; position: relative; z-index: 10; padding-left: 30%;}
+#searchForm legend { text-indent: -9999px; }
+#searchForm input { float: left; width: 0; height: 32px; padding-left: 5px;
+                    border: none; font-size: 12px; }
+#searchForm a { float: left; display: block; text-indent: -9999px; }
+#searchForm a.searchBtn { width: 32px; height: 32px;
+                        background: url(../images/btn_search1.png) no-repeat center / cover; }
+#searchForm a.closeBtn { width: 11px; height: 11px; margin: 10px 0 0 8px;
+                        background: url(../images/common.png) -533px -253px no-repeat; }
 /* 게시판 */
 #listWrap .notice { background: url(../images/tj-notice.jpg) no-repeat center / cover; }
-#listWrap .notice .board { position: relative; z-index: 10; width: 330px; height: 100px;
-                           background: #eee;  margin: 10px auto; }
+#listWrap .notice .board { position: relative; z-index: 10; width: 330px; height: 80px; margin: 20px auto; padding: 5px;
+                           background: rgba(255, 255, 255, 0.8); }
 #listWrap .notice .board ul { float: left; }
-#listWrap .notice .board ul li { padding: 8px 0 0 8px; }
+#listWrap .notice .board ul li { padding: 4px 0 0 10px; }
 #listWrap .notice .board ul li a { color: #333; font-size: 13px; }
-#listWrap .notice .board a.btn-more  { float: right; margin: 30px 5px 0 0; padding: 5px 12px; border: 1px solid #555; color: #333; box-sizing: border-box;}
+#listWrap .notice .board ul li a:hover { text-decoration: underline; }
+#listWrap .notice .board a.btn-more  { float: right; margin: 25px 5px 0 0; padding: 5px 12px; font-family: 'SpoqaHanSansNeo-Regular';
+                                      border: 1px solid #555; color: #333; box-sizing: border-box;}
 #listWrap .notice .board a.btn-more:hover  { border: none; color: #eee; background: #F26A25; }
 /* 색션3- 사이트 안내 */
-#siteWrap { width: 100%; border-top: 1px solid #ccc; margin-top: 5%; }
+#siteWrap { width: 100%; border-top: 1px solid #ccc; margin-top: 9%; }
 #siteWrap ul { width: 70%; margin: 30px auto 0; }
 #siteWrap li { width: 12.500%; float: left; }
 #siteWrap a { display: block; background: url(../images/common.png) left top no-repeat; text-indent: -9999px; margin: 0 auto; }
@@ -189,15 +192,18 @@ hr { display: none;}
 #btn_top a { display: block; width: 42px; height: 42px; text-indent: -9999px;
             background: url(../images/top-btn.png) no-repeat center / cover;}
 /* 푸터 */
-#footer { width: 100%; background: #666; overflow: hidden;}
-#footerWrap { width: 80%; margin: 0 auto; font-size: 14px; overflow: hidden;}
-#footer-sub { width: 80%;}
+#footer { width: 100%; padding: 20px 0; background: #666; overflow: hidden;}
+#footerWrap { width: 80%; margin: 0 auto;  overflow: hidden;}
+#footer-sub { width: 80%; font-size: 14px; }
 #footer-sub ul { }
 #footer-sub ul li {float: left; margin-top: 10px; }
 #footer-sub ul li a { margin: 0 10px; color: #ddd; font-weight: bold;}
 #footer-sub ul li a.strong { color: #F26A25; text-decoration: underline; }
-#address { float: left; width: 80%; padding: 10px; text-align: center; color: #ccc; }
-#address span { }
+#address { float: left; width: 80%; padding: 10px; font-size: 13px; text-align: center; color: #ccc; }
+#address .span { font-weight: bold }
+#address a { color: #ccc; text-decoration: underline; }
+#address address { margin: 4px 0;}
+#address small { margin: 4px 0;}
 /* sns */
 #sns { float: right; }
 #sns ul li { float: left; }
